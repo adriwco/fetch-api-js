@@ -25,7 +25,7 @@ async function getAllPosts() {
   const response = await fetch(url);
   const data = await response.json(response);
   totalItems = data.length;
-  postsContainer.innerHTML = ""; 
+  postsContainer.innerHTML = "";
 
   data.slice(startIndex, startIndex + 10).forEach((post) => {
     const div = document.createElement("div");
@@ -36,7 +36,6 @@ async function getAllPosts() {
     title.innerHTML = post.title;
     body.innerHTML = post.body;
     link.innerHTML = `Ler (${post.id})`;
-    link.setAttribute("target", "_blank");
     link.setAttribute("href", `/post.html?id=${post.id}`);
 
     div.append(title, body, link);
@@ -44,9 +43,9 @@ async function getAllPosts() {
   });
 
   if (postsContainer.childElementCount > 0) {
-    localStorage.setItem('clickGerar', true);
+    sessionStorage.setItem("clickGerar", true);
   } else {
-    localStorage.setItem('clickGerar', false);
+    sessionStorage.setItem("clickGerar", false);
   }
 }
 
@@ -105,7 +104,7 @@ if (!postId) {
   // getAllPosts();
   exibirBtn.addEventListener("click", getAllPosts);
   // Verifica se o botão "Gerar" já foi clicado antes
-  if (localStorage.getItem('clickGerar') === 'true') {
+  if (sessionStorage.getItem("clickGerar") === "true") {
     getAllPosts();
   }
 
@@ -142,6 +141,8 @@ if (!postId) {
 }
 
 // remover item do localStorage| sessionStorage e localStorage.
-window.addEventListener('beforeunload', function(event) {
-  localStorage.removeItem('clickGerar');
+window.addEventListener("beforeunload", function (event) {
+  if (!sessionStorage.getItem("clickGerar")) {
+    sessionStorage.removeItem("clickGerar");
+  }
 });
