@@ -1,4 +1,4 @@
-## Projeto utilizando o recurso Fetch API no JS
+## Projeto utilizando o recurso Fetch API
 🔸Base de Posts em Blog
 ***
 #### 🔸Tecnologias utilizadas:
