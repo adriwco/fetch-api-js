@@ -28,6 +28,9 @@ input[type="submit"] {
 :is(a, input[type="submit"]):hover {
   opacity: 1;
 }
+#prev_button,#next_button{
+  display: none;
+}
 a{
   display: block;
   max-width: 120px;

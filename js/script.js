@@ -48,6 +48,9 @@ async function getAllPosts() {
   } else {
     sessionStorage.setItem("clickGerar", false);
   }
+
+  prevButton.style.display = "inline-block";
+  nextButton.style.display = "inline-block";
 }
 
 // Get Indidual Post
