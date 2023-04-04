@@ -37,6 +37,7 @@ async function getAllPosts() {
     body.innerHTML = post.body;
     link.innerHTML = `Ler (${post.id})`;
     link.setAttribute("href", `/fetch-api-js/post.html?id=${post.id}`);
+    //link.setAttribute("href", `/post.html?id=${post.id}`);
 
     div.append(title, body, link);
     postsContainer.append(div); // append() é melhor que appendChild()
